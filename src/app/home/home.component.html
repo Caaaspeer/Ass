@@ -1,0 +1,61 @@
+<div *ngIf=datas>
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th><button (click)="doFilter()">Filter</button></th>
+        <th><input [(ngModel)]="filter.name" type="text"></th>
+        <th>
+            from:<input size="4" [(ngModel)]="filter.lowAge" type="number">
+            <br>
+            to: <input size="4" [(ngModel)]="filter.plusAge" type="number">
+        </th>
+        <th>
+            from:<input size="4" [(ngModel)]="filter.lowHeight" type="number"><br> to:<input size="4" [(ngModel)]="filter.plusHeight" type="number"></th>
+        <th>from:<input size="4" [(ngModel)]="filter.lowWeight" type="number"><br>to:<input size="4" [(ngModel)]="filter.plusWeight" type="number"></th>
+        <th><input [(ngModel)]="filter.hair" type="text"></th>
+        <th><input [(ngModel)]="filter.professions" type="text"></th>
+        <th><input [(ngModel)]="filter.frend" type="text"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Height</th>
+        <th>Weight</th>
+        <th>Hair</th>
+        <th>Professions</th>
+        <th>Friends</th>
+      </tr>
+      <ng-container *ngFor="let data of datas">
+        <tr *ngIf="data.show">
+          <td>
+            <img width="100px" height="80px" src="{{data.thumbnail}}" />
+          </td>
+          <td>
+            {{data.name}}
+          </td>
+          <td>
+            {{data.age}}
+          </td>
+          <td>
+            {{data.height}}
+          </td>
+          <td>
+            {{data.weight}}
+          </td>
+          <td>
+            {{data.hair_color}}
+          </td>
+          <td style="overflow:auto;">
+            {{data.professions}}
+          </td>
+          <td style="overflow:auto;">
+            {{data.friends}}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
